@@ -1,4 +1,3 @@
-
 @props(['chirp'])
 
 <div class="card bg-base-100 shadow">
@@ -15,7 +14,7 @@
             @else
             <div class="avatar">
                 <div class="size-10 rounded-full">
-                    <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y&s=40"
+                    <img src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Anonymous"
                         alt="Anonymous User"
                         class="rounded-full" />
                 </div>
@@ -27,6 +26,21 @@
                     <span class="text-base-content/60">·</span>
                     <span class="text-sm text-base-content/60">{{ $chirp->created_at->diffForHumans() }}</span>
                 </div>
+                
+                <div class="flex gap-1">
+                        <a href="/chirps/{{ $chirp->id }}/edit" class="btn btn-ghost btn-xs">
+                            Edit
+                        </a>
+                        <form method="POST" action="/chirps/{{ $chirp->id }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                onclick="return confirm('Are you sure you want to delete this chirp?')"
+                                class="btn btn-ghost btn-xs text-error">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
 
                 <p class="mt-1">
                     {{ $chirp->message }}
@@ -34,4 +48,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
