@@ -32,5 +32,6 @@ Route::post('/logout', Logout::class)
 Route::view('/login', 'auth.login')
     ->middleware('guest')
     ->name('login');
+    
 Route::post('/login', Login::class)
     ->middleware('guest');
