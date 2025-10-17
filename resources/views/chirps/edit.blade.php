@@ -1,4 +1,3 @@
-
 <x-layout>
     <x-slot:title>
         Edit Chirp
@@ -20,7 +19,8 @@
                             rows="4"
                             maxlength="255"
                             required
-                        >{{ old('message', $chirp->message) }}</textarea>
+                        >{{ old('message', $chirp->message) }}
+                        </textarea>
 
                         @error('message')
                             <div class="label">
